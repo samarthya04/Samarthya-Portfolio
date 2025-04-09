@@ -478,14 +478,14 @@ section { padding: 100px 0; }
 }
 
 .about-image img {
-    width: 100%;
+    width: 90%;
     height: auto;
     object-fit: cover;
-    filter: brightness(85%) contrast(1.1);
+    filter: brightness(80%) contrast(1.0);
     transition: filter 0.3s ease;
 }
 
-.about-image:hover img { filter: brightness(100%) contrast(1); }
+.about-image:hover img { filter: brightness(90%) contrast(1); }
 
 .skills-grid {
     display: grid;
