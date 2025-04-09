@@ -19,7 +19,9 @@
     <header role="banner">
         <div class="container">
             <nav aria-label="Main navigation">
-                <a href="#home" class="logo">Samarthya</a>
+                <a href="#home" class="logo">
+                    <i class="fas fa-terminal"></i> Samarthya
+                </a>
                 <ul class="nav-links">
                     <li><a href="#home" aria-label="Go to Home">Home</a></li>
                     <li><a href="#about" aria-label="Go to About">About</a></li>
@@ -28,7 +30,10 @@
                     <li><a href="#experience" aria-label="Go to Experience">Experience</a></li>
                     <li><a href="#contact" aria-label="Go to Contact">Contact</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="Toggle mobile menu">☰</button>
+                <div class="nav-controls">
+                    <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+                    <button class="mobile-menu-btn" aria-label="Toggle mobile menu">☰</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -49,11 +54,16 @@
         <section id="home" class="hero" role="region" aria-label="Home">
             <div class="container">
                 <div class="hero-content card">
-                    <h1 class="fade-in">Hi, I'm <span class="glitch" data-text="Samarthya">Samarthya</span></h1>
-                    <p class="fade-in delay-1">A Computer Science student at KIIT, crafting innovative solutions with AI, ML, and web development.</p>
-                    <div class="fade-in delay-2">
-                        <a href="#projects" class="cta-btn">Discover My Work</a>
-                        <a href="#contact" class="cta-btn">Say Hello</a>
+                    <h1 class="fade-in">
+                        Hi, I'm <span class="glitch" data-text="Samarthya">Samarthya</span>
+                        <span class="matrix-font">></span>
+                    </h1>
+                    <p class="fade-in delay-1 typewriter">
+                        A Computer Science student at KIIT, crafting innovative solutions with AI, ML, and web development.
+                    </p>
+                    <div class="fade-in delay-2 cta-buttons">
+                        <a href="#projects" class="cta-btn"><i class="fas fa-code"></i> Discover My Work</a>
+                        <a href="#contact" class="cta-btn outline"><i class="fas fa-envelope"></i> Say Hello</a>
                     </div>
                 </div>
             </div>
@@ -61,19 +71,22 @@
 
         <section id="about" class="about" role="region" aria-label="About Me">
             <div class="container">
-                <h2 class="section-title">about me</h2>
-                <div class="about-grid card">
+                <h2 class="section-title glitch-text" data-text="about me">about me</h2>
+                <div class="about-grid card card-3d">
                     <div class="about-text">
-                        <h3>Who Am I?</h3>
+                        <h3 class="glitch-text" data-text="Who Am I?">Who Am I?</h3>
                         <p>I’m a passionate Computer Science student at KIIT, Bhubaneswar, with a flair for AI, Machine Learning, and creative tech solutions.</p>
                         <p>As the ML Team Lead at IoT Lab, I thrive on building intelligent systems—think optimized YOLOv8 models and sleek portfolio generators.</p>
                         <p>My journey is fueled by curiosity, coffee, and a love for turning complex problems into elegant code.</p>
                         <div class="code-block">
-                            const samarthya = {<br>
-                             education: "B.Tech in Computer Science, KIIT",<br>
-                             expertise: ["AI", "ML", "Web Dev"],<br>
-                             passion: "Building the future, one line at a time"<br>
-                            };<span class="terminal-cursor"></span>
+                            <div class="code-block-content">
+                                const samarthya = {<br>
+                                &nbsp;&nbsp;education: "B.Tech in Computer Science, KIIT",<br>
+                                &nbsp;&nbsp;expertise: ["AI", "ML", "Web Dev"],<br>
+                                &nbsp;&nbsp;passion: "Building the future, one line at a time"<br>
+                                };<span class="terminal-cursor"></span>
+                            </div>
+                            <button class="copy-btn"><i class="fas fa-clipboard"></i> Copy</button>
                         </div>
                     </div>
                     <div class="about-image">
@@ -85,9 +98,9 @@
 
         <section id="skills" class="skills" role="region" aria-label="Skills">
             <div class="container">
-                <h2 class="section-title">skills</h2>
+                <h2 class="section-title glitch-text" data-text="skills">skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-category card">
+                    <div class="skill-category card card-3d">
                         <h3>Programming</h3>
                         <ul class="skill-list">
                             <li>Python</li>
@@ -97,7 +110,7 @@
                             <li>CSS</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card card-3d">
                         <h3>Frameworks</h3>
                         <ul class="skill-list">
                             <li>PyTorch</li>
@@ -106,7 +119,7 @@
                             <li>Flask</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card card-3d">
                         <h3>Libraries</h3>
                         <ul class="skill-list">
                             <li>NumPy</li>
@@ -116,7 +129,7 @@
                             <li>NLTK</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card card-3d">
                         <h3>AI/ML</h3>
                         <ul class="skill-list">
                             <li>Deep Learning</li>
@@ -126,7 +139,7 @@
                             <li>CNNs</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card card-3d">
                         <h3>Tools</h3>
                         <ul class="skill-list">
                             <li>Git</li>
@@ -136,7 +149,7 @@
                             <li>Prometheus</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card card-3d">
                         <h3>Deployment</h3>
                         <ul class="skill-list">
                             <li>Render</li>
@@ -149,10 +162,10 @@
 
         <section id="projects" class="projects" role="region" aria-label="Projects">
             <div class="container">
-                <h2 class="section-title">projects</h2>
+                <h2 class="section-title glitch-text" data-text="projects">projects</h2>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide card">
+                        <div class="swiper-slide card card-3d">
                             <img src="project1.png" alt="Image Styling Project" class="project-img" loading="lazy">
                             <div class="project-content">
                                 <h3>Image Styling with Neural Style Transfer</h3>
@@ -165,12 +178,12 @@
                                     <span>OpenCV</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/samarthya04/NeuralStyle" target="_blank">Code</a>
-                                    <a href="#" target="_blank">Demo</a>
+                                    <a href="https://github.com/samarthya04/NeuralStyle" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                    <a href="#" target="_blank"><i class="fas fa-eye"></i> Demo</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card">
+                        <div class="swiper-slide card card-3d">
                             <img src="project2.png" alt="Blind Hat Project" class="project-img" loading="lazy">
                             <div class="project-content">
                                 <h3>Blind Hat: Navigation Assistant</h3>
@@ -183,11 +196,11 @@
                                     <span>OSMnx</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/iot-lab-kiit/BlindHat" target="_blank">Code</a>
+                                    <a href="https://github.com/iot-lab-kiit/BlindHat" target="_blank"><i class="fab fa-github"></i> Code</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card">
+                        <div class="swiper-slide card card-3d">
                             <img src="project3.png" alt="Portfolio Website Generator" class="project-img" loading="lazy">
                             <div class="project-content">
                                 <h3>Portfolio Website Generator</h3>
@@ -200,8 +213,8 @@
                                     <span>spaCy</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/samarthya04/portfolio-website" target="_blank">Code</a>
-                                    <a href="https://portfolio-website-nxr9.onrender.com" target="_blank">Live</a>
+                                    <a href="https://github.com/samarthya04/portfolio-website" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                    <a href="https://portfolio-website-nxr9.onrender.com" target="_blank"><i class="fas fa-globe"></i> Live</a>
                                 </div>
                             </div>
                         </div>
@@ -215,9 +228,9 @@
 
         <section id="experience" class="experience" role="region" aria-label="Experience">
             <div class="container">
-                <h2 class="section-title">experience</h2>
+                <h2 class="section-title glitch-text" data-text="experience">experience</h2>
                 <div class="timeline">
-                    <div class="timeline-item card">
+                    <div class="timeline-item card card-3d">
                         <div class="timeline-content">
                             <div class="timeline-date">Aug 2024 - Present</div>
                             <h3>Lead, ML Team</h3>
@@ -229,7 +242,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="timeline-item card">
+                    <div class="timeline-item card card-3d">
                         <div class="timeline-content">
                             <div class="timeline-date">Mar 2023 - Aug 2024</div>
                             <h3>Member, ML Team</h3>
@@ -241,7 +254,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="timeline-item card">
+                    <div class="timeline-item card card-3d">
                         <div class="timeline-content">
                             <div class="timeline-date">May 2024 - Jun 2024</div>
                             <h3>Intern</h3>
@@ -258,10 +271,10 @@
 
         <section id="contact" class="contact" role="region" aria-label="Contact">
             <div class="container">
-                <h2 class="section-title">contact</h2>
-                <div class="contact-grid card">
+                <h2 class="section-title glitch-text" data-text="contact">contact</h2>
+                <div class="contact-grid card card-3d">
                     <div class="contact-info">
-                        <h3>Let’s Connect</h3>
+                        <h3 class="glitch-text" data-text="Let’s Connect">Let’s Connect</h3>
                         <p>Got a project idea or just want to chat tech? I’d love to hear from you!</p>
                         <ul class="contact-links">
                             <li><a href="mailto:chattree.sam@gmail.com"><i class="fas fa-envelope"></i> chattree.sam@gmail.com</a></li>
@@ -270,7 +283,7 @@
                         </ul>
                     </div>
                     <div class="contact-form">
-                        <form id="contact-form" action="/send" method="POST">
+                        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" class="form-control" aria-label="Name" required>
@@ -302,6 +315,10 @@
             </div>
         </div>
     </footer>
+
+    <div class="scroll-banner">
+        <span class="scroll-banner-text">Initializing Matrix Portfolio v1.0 - Samarthya Chattree - AI/ML Enthusiast - Built with Passion</span>
+    </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
