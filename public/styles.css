@@ -229,45 +229,6 @@ nav {
     text-shadow: var(--accent-glow);
 }
 
-/* Glitch Effect */
-.glitch {
-    position: relative;
-    color: var(--bright-green);
-    text-shadow: var(--accent-glow);
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    opacity: 0.8;
-}
-
-.glitch::before {
-    color: var(--mid-green);
-    z-index: -1;
-    animation: glitch-effect 3s infinite;
-}
-
-.glitch::after {
-    color: var(--bright-green);
-    z-index: -2;
-    animation: glitch-effect 2s infinite reverse;
-}
-
-@keyframes glitch-effect {
-    0% { transform: translate(0); }
-    20% { transform: translate(-3px, 3px); }
-    40% { transform: translate(-3px, -3px); }
-    60% { transform: translate(3px, 3px); }
-    80% { transform: translate(3px, -3px); }
-    100% { transform: translate(0); }
-}
-
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 30px;
