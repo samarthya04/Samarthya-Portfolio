@@ -32,4 +32,4 @@ Copy
 - **GitHub Pages**: Use the `public` folder for static hosting.
 
 ## License
-MIT
+MIT"# Samarthya-Portfolio" 
