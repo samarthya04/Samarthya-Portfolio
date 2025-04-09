@@ -1,14 +1,27 @@
 :root {
-    --dark-bg: #1A0B2E;
+    --dark-bg: #0D0208;
+    --dark-green: #003B00;
+    --mid-green: #008F11;
+    --bright-green: #00FF41;
+    --text-primary: #00FF41;
+    --text-secondary: #008F11;
+    --accent-glow: 0 0 10px #00FF41, 0 0 20px rgba(0, 255, 65, 0.5);
+    --code-bg: rgba(0, 59, 0, 0.3);
+    --hover-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     --light-bg: #F5F3F7;
     --primary-accent: #D4A5FF;
     --secondary-accent: #FFD700;
-    --text-primary: #F5F3F7;
-    --text-secondary: #A89BB9;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     --glow: 0 0 15px rgba(212, 165, 255, 0.5), 0 0 30px rgba(212, 165, 255, 0.3);
-    --hover-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.light-mode {
+    --dark-bg: #F5F3F7;
+    --text-primary: #1A0B2E;
+    --text-secondary: #6B5B8A;
+    --glow: 0 0 15px rgba(107, 91, 138, 0.5), 0 0 30px rgba(107, 91, 138, 0.3);
+}
+
 
 * {
     margin: 0;
@@ -28,15 +41,6 @@ body {
     font-size: 18px;
     overflow-x: hidden;
 }
-
-.light-mode {
-    background: var(--light-bg);
-    --dark-bg: #F5F3F7;
-    --text-primary: #1A0B2E;
-    --text-secondary: #6B5B8A;
-    --glow: 0 0 15px rgba(107, 91, 138, 0.5), 0 0 30px rgba(107, 91, 138, 0.3);
-}
-
 .container {
     max-width: 1300px;
     margin: 0 auto;
