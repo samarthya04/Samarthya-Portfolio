@@ -7,13 +7,13 @@ function initMatrix() {
     canvas.height = window.innerHeight;
     
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワ';
-    const fontSize = 16;
+    const fontSize = 18;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
-    const colors = ['#00ff41', '#00df38', '#00cf35', '#00bf32', '#33cc66'];
+    const colors = ['#D4A5FF', '#FFD700', '#A89BB9'];
 
     function draw() {
-        ctx.fillStyle = 'rgba(13, 2, 8, 0.05)';
+        ctx.fillStyle = 'rgba(26, 11, 46, 0.05)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         for (let i = 0; i < drops.length; i++) {
@@ -48,16 +48,16 @@ function initParticles() {
     particlesContainer.className = 'particles-container';
     document.querySelector('.hero').prepend(particlesContainer);
     
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.left = Math.random() * 100 + 'vw';
         particle.style.top = Math.random() * 100 + 'vh';
-        const size = 1.5 + Math.random() * 3;
+        const size = 2 + Math.random() * 4;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
         particle.style.animationDelay = Math.random() * 5 + 's';
-        particle.style.animationDuration = 5 + Math.random() * 10 + 's';
+        particle.style.animationDuration = 6 + Math.random() * 10 + 's';
         particlesContainer.appendChild(particle);
     }
 }
@@ -66,13 +66,13 @@ function initParticles() {
 function initSwiper() {
     return new Swiper('.swiper-container', {
         slidesPerView: 1,
-        spaceBetween: 30,
+        spaceBetween: 40,
         loop: true,
         effect: 'coverflow',
         coverflowEffect: {
-            rotate: 30,
+            rotate: 25,
             stretch: 0,
-            depth: 100,
+            depth: 120,
             modifier: 1,
             slideShadows: true,
         },
@@ -84,7 +84,7 @@ function initSwiper() {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
         },
-        autoplay: { delay: 5000, disableOnInteraction: false },
+        autoplay: { delay: 4000, disableOnInteraction: false },
         on: { init: addMouseParallaxToSlides }
     });
 }
@@ -98,7 +98,7 @@ function addMouseParallaxToSlides() {
             const y = (e.clientY - top) / height - 0.5;
             const img = slide.querySelector('.project-img');
             if (img) {
-                img.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${y * -10}deg) scale3d(1.05, 1.05, 1.05)`;
+                img.style.transform = `perspective(1000px) rotateY(${x * 8}deg) rotateX(${y * -8}deg) scale3d(1.05, 1.05, 1.05)`;
             }
         });
         slide.addEventListener('mouseleave', () => {
@@ -148,7 +148,7 @@ function initSmoothScroll() {
                 document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
                 this.classList.add('active');
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetElement.offsetTop - 100,
                     behavior: 'smooth'
                 });
             }
@@ -161,17 +161,17 @@ function initCounters() {
     const statsContainer = document.createElement('div');
     statsContainer.className = 'stats-container';
     statsContainer.innerHTML = `
-        <div class="stat-item">
+        <div class="stat-item card">
             <span class="stat-count" data-target="15">0</span>
             <span class="stat-label">Projects</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item card">
             <span class="stat-count" data-target="8">0</span>
             <span class="stat-label">Technologies</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item card">
             <span class="stat-count" data-target="3">0</span>
-            <span class="stat-label">Years Experience</span>
+            <span class="stat-label">Years</span>
         </div>
     `;
     const aboutSection = document.getElementById('about');
@@ -215,7 +215,7 @@ function initTerminalEffect() {
             if (i < originalText.length) {
                 block.innerHTML += originalText.charAt(i);
                 i++;
-                setTimeout(typeWriter, Math.random() * 20 + 10);
+                setTimeout(typeWriter, Math.random() * 15 + 10);
             }
         };
         const observer = new IntersectionObserver((entries) => {
@@ -278,7 +278,7 @@ function initContactForm() {
             inputs.forEach(input => input.parentNode.classList.remove('focused'));
             showNotification('Message sent successfully!', 'success');
         } catch (error) {
-            showNotification('Failed to send message. Please try again.', 'error');
+            showNotification('Failed to send message. Try again.', 'error');
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
@@ -311,7 +311,7 @@ function showNotification(message, type = 'info') {
 function initThemeToggle() {
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'theme-toggle';
-    toggleBtn.innerHTML = '<i class="fas fa-adjust"></i>';
+    toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
     toggleBtn.setAttribute('aria-label', 'Toggle light/dark mode');
     document.querySelector('header .container').appendChild(toggleBtn);
     
@@ -326,6 +326,7 @@ function initThemeToggle() {
         localStorage.setItem('darkMode', isDarkMode);
         document.documentElement.classList.toggle('light-mode');
         toggleBtn.classList.add('spin');
+        toggleBtn.innerHTML = isDarkMode ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
         setTimeout(() => toggleBtn.classList.remove('spin'), 300);
     });
 }
@@ -358,7 +359,7 @@ function initLazyLoading() {
 
 // Scroll Animations
 function initScrollAnimations() {
-    const animatableElements = document.querySelectorAll('.about-grid, .skills-grid, .timeline-item, .contact-grid, .section-title');
+    const animatableElements = document.querySelectorAll('.card, .section-title');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -382,7 +383,7 @@ function initGlitchEffect() {
         element.addEventListener('mouseover', () => {
             element.classList.add('glitching');
             let iterations = 0;
-            const maxIterations = 10;
+            const maxIterations = 8;
             const interval = setInterval(() => {
                 element.textContent = originalText
                     .split('')
@@ -407,14 +408,14 @@ function initParallaxScrolling() {
     window.addEventListener('scroll', () => {
         const scrollPosition = window.pageYOffset;
         const heroContent = document.querySelector('.hero-content');
-        if (heroContent) heroContent.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+        if (heroContent) heroContent.style.transform = `translateY(${scrollPosition * 0.15}px)`;
         
         const aboutImage = document.querySelector('.about-image');
         if (aboutImage) {
             const aboutOffset = aboutImage.offsetTop;
             const distance = scrollPosition - aboutOffset;
             if (distance > -500 && distance < 500) {
-                aboutImage.style.transform = `translateY(${distance * -0.05}px)`;
+                aboutImage.style.transform = `translateY(${distance * -0.03}px)`;
             }
         }
     });
@@ -429,7 +430,7 @@ function initSkillBars() {
         skillBars.className = 'skill-bars';
         
         items.forEach(item => {
-            const proficiency = 75 + Math.floor(Math.random() * 20);
+            const proficiency = 70 + Math.floor(Math.random() * 25);
             const skillBar = document.createElement('div');
             skillBar.className = 'skill-bar';
             skillBar.innerHTML = `
