@@ -32,6 +32,7 @@
                 </ul>
                 <div class="nav-controls">
                     <button class="theme-toggle" aria-label="Switch reality"><i class="fas fa-sun"></i></button>
+                    <button class="matrix-toggle" aria-label="Toggle matrix effect"><i class="fas fa-power-off"></i></button>
                     <button class="mobile-menu-btn" aria-label="Open hack menu">☰</button>
                 </div>
             </nav>
@@ -76,23 +77,17 @@
                 <div class="about-grid card card-3d">
                     <div class="about-text">
                         <h3 class="glitch-text" data-text="> About Me">> About Me</h3>
-                        <p>I’m Samarthya, a Computer Science student at KIIT with a focus on AI and ML. I lead the ML team at IoT Lab, tinkering with things like YOLOv8 and Flask apps.</p>
-                        <p>I enjoy solving problems with code—whether it’s optimizing a neural net or figuring out why my loop won’t exit.</p>
-                        <p>Fueled by coffee and a curiosity for how machines think, I’m here to build tech that matters.</p>
-                        <div class="code-block">
-                            <div class="code-block-content">
-                                > sudo whoami<br>
-                                {name: "Samarthya",<br>
-                                  role: "ML Lead @ IoT Lab",<br>
-                                  skills: ["AI", "ML", "Web Dev"],<br>
-                                  status: "Running on coffee" }<br>
-                                <span class="terminal-cursor"></span>
-                            </div>
-                            <button class="copy-btn"><i class="fas fa-clipboard"></i> Copy</button>
+                        <p>I’m Samarthya, a Computer Science student at KIIT with a focus on AI and ML...</p>
+                        <p>I enjoy solving problems with code...</p>
+                        <p>Fueled by coffee and curiosity...</p>
+                        <div class="terminal">
+                            <input type="text" id="terminal-input" placeholder="> Type a command (skills, projects)" aria-label="Interactive terminal input">
+                            <div id="terminal-output" aria-live="polite"></div>
                         </div>
+                        <p class="github-stats">GitHub Stats: Loading...</p>
                     </div>
                     <div class="about-image">
-                        <img src="pic.jpeg" alt="Samarthya Chattree" loading="lazy">
+                        <img src="pic.jpeg" alt="Samarthya Chattree working on AI projects" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -161,14 +156,20 @@
         </section>
 
         <section id="projects" class="projects" role="region" aria-label="Projects">
-    <div class="container">
-        <h2 class="section-title glitch-text" data-text="> git projects">> git projects</h2>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide card card-3d">
-                    <img src="project1.png" alt="Neural Style Transfer" class="project-img" loading="lazy">
-                    <div class="project-content">
-                        <h3>Image Styling using NST</h3>
+            <div class="container">
+                <h2 class="section-title glitch-text" data-text="> git projects">> git projects</h2>
+                <div class="project-filters">
+                    <button data-filter="all" aria-label="Show all projects">All</button>
+                    <button data-filter="ai-ml" aria-label="Show AI/ML projects">AI/ML</button>
+                    <button data-filter="web" aria-label="Show Web Dev projects">Web</button>
+                    <button data-filter="games" aria-label="Show Games projects">Games</button>
+                </div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card card-3d" data-category="ai-ml">
+                            <img src="project1.png" alt="Neural Style Transfer" class="project-img" loading="lazy">
+                            <div class="project-content">
+                                <h3>Image Styling using NST</h3>
                         <p>Used VGG-19 to blend art and photos, optimized to run in 22-35 seconds. Style meets efficiency.</p>
                         <div class="project-stack">
                             <span>Python</span>
@@ -183,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide card card-3d">
+                <div class="swiper-slide card card-3d" data-category="ai-ml">
                     <img src="project2.png" alt="Blind Hat" class="project-img" loading="lazy">
                     <div class="project-content">
                         <h3>Blind Hat</h3>
@@ -200,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide card card-3d">
+                <div class="swiper-slide card card-3d" data-category="web" data-category="ai-ml">
                     <img src="project3.png" alt="Portfolio Generator" class="project-img" loading="lazy">
                     <div class="project-content">
                         <h3>Portfolio Generator</h3>
@@ -219,7 +220,7 @@
                     </div>
                 </div>
                 <!-- New Flappy Bird Project Slide -->
-                <div class="swiper-slide card card-3d">
+                <div class="swiper-slide card card-3d" data-category="games" data-category="ai-ml">
                     <img src="gameplay.gif" alt="Flappy Bird: Q-Learning" class="project-img" loading="lazy">
                     <div class="project-content">
                         <h3>Flappy Bird</h3>
@@ -236,8 +237,8 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next" aria-label="Next project"></div>
+            <div class="swiper-button-prev" aria-label="Previous project"></div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
@@ -341,7 +342,7 @@
 
     
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
