@@ -221,6 +221,37 @@ function initSwiper() {
     });
 }
 
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                status.textContent = '> Message sent successfully!';
+                status.style.display = 'block';
+                form.reset();
+                setTimeout(() => status.style.display = 'none', 3000);
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            status.textContent = '> Error: Could not send message.';
+            status.style.display = 'block';
+            setTimeout(() => status.style.display = 'none', 3000);
+        }
+    });
+}
+
 // Utility: Debounce
 function debounce(func, wait = 100) {
     let timeout;
@@ -239,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initTypedEffect();
     initCodeCopy();
+    initContactForm();
     initScrollAnimations();
     initBackToTop();
     initSwiper();
