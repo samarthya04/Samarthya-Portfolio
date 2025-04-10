@@ -4,9 +4,11 @@
 
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
+let isMatrixRunning = true;
 
 // Optimized Matrix Rain
 function initMatrix() {
+    if (!isMatrixRunning) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -23,6 +25,7 @@ function initMatrix() {
     const fpsInterval = 1000 / fps;
 
     function draw(currentTime) {
+        if (!isMatrixRunning) return;
         if (currentTime - lastTime < fpsInterval) {
             requestAnimationFrame(draw);
             return;
@@ -47,6 +50,21 @@ function initMatrix() {
     requestAnimationFrame(draw);
 }
 
+// Matrix Toggle
+function initMatrixToggle() {
+    const toggleBtn = document.querySelector('.matrix-toggle');
+    toggleBtn.addEventListener('click', () => {
+        isMatrixRunning = !isMatrixRunning;
+        if (isMatrixRunning) {
+            initMatrix();
+            toggleBtn.innerHTML = '<i class="fas fa-power-off"></i>';
+        } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+    });
+}
+
 window.addEventListener('load', initMatrix);
 window.addEventListener('resize', debounce(() => initMatrix(), 150));
 
@@ -67,9 +85,9 @@ function initThemeToggle() {
         isDark = !isDark;
         localStorage.setItem('darkMode', isDark);
         document.documentElement.classList.toggle('light-mode');
-        toggleBtn.classList.add('spin');
+        toggleBtn.classList.add('flip');
         toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        setTimeout(() => toggleBtn.classList.remove('spin'), 500);
+        setTimeout(() => toggleBtn.classList.remove('flip'), 500);
     });
 }
 
@@ -252,6 +270,52 @@ function initContactForm() {
     });
 }
 
+// Project Filters
+function initProjectFilters() {
+    const buttons = document.querySelectorAll('.project-filters button');
+    const slides = document.querySelectorAll('.swiper-slide');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            slides.forEach(slide => {
+                slide.style.display = (filter === 'all' || slide.dataset.category === filter) ? 'block' : 'none';
+            });
+        });
+    });
+}
+
+// GitHub Stats
+async function fetchGitHubStats() {
+    try {
+        const response = await fetch('https://api.github.com/users/samarthya04');
+        const data = await response.json();
+        document.querySelector('.github-stats').textContent = `> GitHub Stats: ${data.public_repos} repos, ${data.followers} followers`;
+    } catch (error) {
+        document.querySelector('.github-stats').textContent = '> GitHub Stats: Unable to load';
+    }
+}
+
+// Interactive Terminal
+function initTerminal() {
+    const input = document.getElementById('terminal-input');
+    const output = document.getElementById('terminal-output');
+    const commands = {
+        'skills': '> Python, PyTorch, Flask, TensorFlow, OpenCV...',
+        'projects': '> Blind Hat, Neural Style Transfer, Portfolio Generator, Flappy Bird...',
+        'help': '> Available commands: skills, projects, help'
+    };
+
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = input.value.toLowerCase().trim();
+            output.textContent = commands[cmd] || '> Command not found. Type "help" for options.';
+            input.value = '';
+        }
+    });
+}
+
 // Utility: Debounce
 function debounce(func, wait = 100) {
     let timeout;
@@ -264,16 +328,19 @@ function debounce(func, wait = 100) {
 // Init All
 document.addEventListener('DOMContentLoaded', () => {
     initMatrix();
+    initMatrixToggle();
     initThemeToggle();
     initMobileMenu();
     initSmoothScroll();
     initHeaderScroll();
     initTypedEffect();
     initCodeCopy();
-    initContactForm();
     initScrollAnimations();
     initBackToTop();
     initSwiper();
+    initProjectFilters();
+    fetchGitHubStats();
+    initTerminal();
     document.body.classList.add('js-loaded');
     console.log("%c> Matrix Hack Online", "color: #00AF2F; font-size: 18px; text-shadow: 0 0 5px #00FF41;");
 });
