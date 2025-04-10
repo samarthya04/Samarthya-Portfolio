@@ -528,10 +528,11 @@ section { padding: 100px 0; }
 .swiper-container {
     padding: 25px 0 50px;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .swiper-slide {
+    width: 100%;
     border-radius: 3px;
     overflow: hidden;
     transition: var(--hover-transition);
@@ -941,6 +942,8 @@ footer {
     .hero p { font-size: 1rem; }
     .section-title { font-size: 2rem; }
     .container { padding: 0 15px; }
+    .swiper-slide { width: 100%; } /* Force single slide on mobile */
+    .swiper-container { padding: 15px 0 40px; }
 }
 
 @media (max-width: 480px) {
