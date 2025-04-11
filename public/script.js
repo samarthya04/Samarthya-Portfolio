@@ -12,8 +12,8 @@ function initMatrix() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789∫∬∮≠√∞';
-    const fontSize = 16;
+    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const fontSize = 18;
     const columns = Math.ceil(canvas.width / fontSize);
     const drops = Array(columns).fill(1);
     const speeds = Array(columns).fill().map(() => Math.random() * 1.2 + 0.8);
@@ -302,9 +302,10 @@ function initTerminal() {
     const input = document.getElementById('terminal-input');
     const output = document.getElementById('terminal-output');
     const commands = {
+        'name': 'Samarthya Earnest Chattree',
         'skills': '> Python, PyTorch, Flask, TensorFlow, OpenCV...',
         'projects': '> Blind Hat, Neural Style Transfer, Portfolio Generator, Flappy Bird...',
-        'help': '> Available commands: skills, projects, help'
+        'help': '> Available commands: name, skills, projects, help'
     };
 
     input.addEventListener('keypress', (e) => {
